@@ -1,16 +1,15 @@
 import React from 'react';
 import Button from "../Buttons/Button";
+import {useTg} from "../../hooks/useTg";
 
 const Header = () => {
-    const tg=window.Telegram.WebApp;
-    const onClose = () => {
-        tg.close()
-    }
+    const {user, onClose} = useTg()
+
     return (
         <div className={'header'}>
             <Button onClick={onClose}>Закрыть</Button>
             <span>className={'username'}
-                {tg.initDataUnsafe?.user?.username}
+                {user?.username}
             </span>
         </div>
 
